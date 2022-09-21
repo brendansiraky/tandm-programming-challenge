@@ -1,6 +1,11 @@
 ## Setup
 
-1. Insall the packages
+1. Copy the .env file
+```bash
+cp .env.example .env
+```
+
+3. Install the packages
 ```bash
 npm install
 ```
