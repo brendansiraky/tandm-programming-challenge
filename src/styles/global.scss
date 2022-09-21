@@ -26,10 +26,22 @@ button {
 
 .link {
     font-weight: bold;
-    color: blue;
+    color: #007bff;
 }
 
-.link:hover {
-    cursor: pointer;
-    text-decoration-line: underline;
+.link {
+
+    &:hover, &.active {
+        cursor: pointer;
+        text-decoration-line: underline;
+    }
+
+}
+
+
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }

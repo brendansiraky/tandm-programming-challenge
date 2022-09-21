@@ -5,13 +5,13 @@ import { useGetManageableDocuments } from '../../hooks/useGetManageableDocuments
 import { useUploadDocument } from '../../hooks/useUploadDocument'
 import { Table } from '../shared/Table/Table'
 import { copyToClipboard } from '../../utility/copyToClipboard'
-import styles from './DocumentManagement.module.scss'
+import styles from './DocumentsManagement.module.scss'
 
-export const DocumentManagement = () => {
+export const DocumentsManagement = () => {
     const [onUploadDocument, uploadIsLoading] = useUploadDocument()
     const [
-        handleGetDocuments, 
-        documents, 
+        handleGetDocuments,
+        documents,
         fetchIsLoading
     ] = useGetManageableDocuments()
     const [onDeleteDocument, deleteIsLoading] = useDeleteDocument()
@@ -40,7 +40,7 @@ export const DocumentManagement = () => {
     return (
         <div className={styles.wrapper}>
             <h1>Document Management</h1>
-            <Table 
+            <Table
                 thead={
                     <thead>
                         <tr>

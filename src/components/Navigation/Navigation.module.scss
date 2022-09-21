@@ -1,0 +1,19 @@
+.wrapper {
+
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+
+    ul {
+        display: flex;
+        justify-content: flex-end;
+        padding: 20px 40px;
+
+        li {
+            margin-left: 15px;
+        }
+
+    }
+
+}
