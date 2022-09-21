@@ -1,12 +1,12 @@
 import * as yup from 'yup'
+import { useNavigate } from 'react-router-dom'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
 
+import { useRegister } from '../../hooks/useRegister'
 import styles from './Register.module.scss'
-import { useNavigate } from 'react-router-dom';
-import { useRegister } from '../../hooks/useRegister';
 
-export const registerSchema = yup.object({
+const registerSchema = yup.object({
     username: yup.string().required().min(2).max(28),
     password: yup.string().required().min(6).max(28),
 }).required();

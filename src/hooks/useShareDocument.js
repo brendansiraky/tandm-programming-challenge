@@ -4,19 +4,20 @@ import { toast } from 'react-toastify'
 
 import { fetcher } from '../utility/fetcher'
 
-export const useGetViewableDocuments = () => {
+export const useShareDocument = () => {
     const [isLoading, setIsLoading] = useState(false)
-    const [documents, setDocuments] = useState([])
 
-    async function handleGetDocuments() {
+    async function handleShareDocument(documentId, userId) {
         try {
             setIsLoading(true)
-            const response = await fetcher('/shared-documents', {
+            await fetcher(`/shared-documents/${documentId}`, {
+                method: 'POST',
                 hasAuthentication: true,
+                body: { userId }
             })
-            setDocuments(response)
+            toast.success('Successfully Shared Document')
         } catch (err) {
-            toast.error('Failed To Get Documents.')
+            toast.error('Failed To Share Documents')
             throw err
         } finally {
             setIsLoading(false)
@@ -24,8 +25,7 @@ export const useGetViewableDocuments = () => {
     }
 
     return [
-        handleGetDocuments,
-        documents,
+        handleShareDocument,
         isLoading
     ]
 }

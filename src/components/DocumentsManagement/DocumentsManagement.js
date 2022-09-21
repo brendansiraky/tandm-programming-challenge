@@ -1,13 +1,16 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
-import { useDeleteDocument } from '../../hooks/useDeleteDocument'
 import { useGetManageableDocuments } from '../../hooks/useGetManageableDocuments'
+import { ShareDocumentModal } from '../ShareDocumentModal/ShareDocumentModal'
 import { useUploadDocument } from '../../hooks/useUploadDocument'
+import { useDeleteDocument } from '../../hooks/useDeleteDocument'
+import { Modal } from '../shared/Modal/Modal'
 import { Table } from '../shared/Table/Table'
-import { copyToClipboard } from '../../utility/copyToClipboard'
 import styles from './DocumentsManagement.module.scss'
 
 export const DocumentsManagement = () => {
+    const [sharedDocumentSelected, setSharedDocumentSelected] = useState(null)
+
     const [onUploadDocument, uploadIsLoading] = useUploadDocument()
     const [
         handleGetDocuments,
@@ -18,6 +21,7 @@ export const DocumentsManagement = () => {
 
     useEffect(() => {
         handleGetDocuments()
+        // eslint-disable-next-line
     }, [])
 
     function handleUploadDocument(e) {
@@ -33,38 +37,45 @@ export const DocumentsManagement = () => {
             .then(() => handleGetDocuments())
     }
 
-    function handleCopyLink(path) {
-        copyToClipboard(`${process.env.REACT_APP_API_ENDPOINT}/${path}`)
-    }
-
     return (
-        <div className={styles.wrapper}>
-            <h1>Document Management</h1>
-            <Table
-                thead={
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Manage</th>
-                        </tr>
-                    </thead>
-                }
-                tbody={
-                    <tbody>
-                        {fetchIsLoading ? <tr><td>Loading...</td></tr> : documents.map((document => (
-                            <tr key={document.id}>
-                                <td>{document.name}</td>
-                                <td>
-                                    <button type="button" onClick={() => handleDeleteDocument(document.id)} disabled={deleteIsLoading}>DELETE</button>
-                                    <button type="button" onClick={() => handleCopyLink(document.path)}>COPY LINK</button>
-                                    <button type="button">VEIW DOCUMENT</button>
-                                </td>
+        <>
+            <div className={styles.wrapper}>
+                <h1>Document Management</h1>
+                <Table
+                    thead={
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Manage</th>
                             </tr>
-                        )))}
-                    </tbody>
-                }
-            />
-            <input type='file' onChange={handleUploadDocument} disabled={uploadIsLoading} />
-        </div>
+                        </thead>
+                    }
+                    tbody={
+                        <tbody>
+                            {fetchIsLoading ? <tr><td>Loading...</td></tr> : documents.map((document => (
+                                <tr key={document.id}>
+                                    <td>{document.name}</td>
+                                    <td className={deleteIsLoading ? styles.disabled : undefined}>
+                                        <span onClick={() => handleDeleteDocument(document.id)} className="link">Delete Document</span>
+                                        <a className="link" rel="noreferrer" href={`${process.env.REACT_APP_API_ENDPOINT}/${document.path}`} target="_blank">
+                                            View Document
+                                        </a>
+                                        <span onClick={() => setSharedDocumentSelected(document.id)} className="link">Share Document</span>
+                                    </td>
+                                </tr>
+                            )))}
+                        </tbody>
+                    }
+                />
+                <input type='file' onChange={handleUploadDocument} disabled={uploadIsLoading} />
+            </div>
+            {sharedDocumentSelected && 
+                <Modal
+                    show={sharedDocumentSelected}
+                    onHide={() => setSharedDocumentSelected(null)}
+                >
+                    <ShareDocumentModal documentId={sharedDocumentSelected} />
+                </Modal>}
+        </>
     )
 }

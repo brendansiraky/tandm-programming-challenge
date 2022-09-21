@@ -1,12 +1,13 @@
-import * as yup from 'yup'
+import { useNavigate } from 'react-router-dom'
+
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
+import * as yup from 'yup'
 
+import { useLogin } from '../../hooks/useLogin'
 import styles from './Login.module.scss'
-import { useNavigate } from 'react-router-dom';
-import { useLogin } from '../../hooks/useLogin';
 
-export const loginSchema = yup.object({
+const loginSchema = yup.object({
     username: yup.string().required().min(2).max(28),
     password: yup.string().required().min(6).max(28),
 }).required();

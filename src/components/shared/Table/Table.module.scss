@@ -1,5 +1,7 @@
 .table {
+
     font-family: sans-serif;
+    min-width: 100%;
 
     th,
     td {
@@ -7,20 +9,13 @@
         text-align: left;
     }
 
-    th:nth-child(1), td:nth-child(1) {
-        width: 50vw;
-    }
-
-    th:nth-child(2), td:nth-child(2) {
-        width: 50vw;
-    }
-
     td {
         background-color: #eee;
     }
 
     th {
-        background-color: #009;
+        background-color: #007bff;
         color: #fff;
     }
+
 }

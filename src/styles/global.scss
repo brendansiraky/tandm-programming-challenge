@@ -36,6 +36,14 @@ button {
         text-decoration-line: underline;
     }
 
+    margin: 0 5px;
+
+}
+
+a {
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+    text-decoration-line: none;
 }
 
 

@@ -4,19 +4,20 @@ import { toast } from 'react-toastify'
 
 import { fetcher } from '../utility/fetcher'
 
-export const useGetViewableDocuments = () => {
+export const useUpdateComment = () => {
     const [isLoading, setIsLoading] = useState(false)
-    const [documents, setDocuments] = useState([])
 
-    async function handleGetDocuments() {
+    async function handleUpdateComment(documentId, payload) {
         try {
             setIsLoading(true)
-            const response = await fetcher('/shared-documents', {
+            await fetcher(`/shared-documents/comment/${documentId}`, {
+                method: 'PATCH',
                 hasAuthentication: true,
+                body: payload
             })
-            setDocuments(response)
+            toast.success('Successfully Updated Comment')
         } catch (err) {
-            toast.error('Failed To Get Documents.')
+            toast.error('Failed To Update Comment')
             throw err
         } finally {
             setIsLoading(false)
@@ -24,8 +25,7 @@ export const useGetViewableDocuments = () => {
     }
 
     return [
-        handleGetDocuments,
-        documents,
+        handleUpdateComment,
         isLoading
     ]
 }
