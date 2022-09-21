@@ -16,7 +16,7 @@ export const useLogin = () => {
                 body: payload
             })
             setItemInLocalStorage('authContext', { accessToken: authContext.access_token })
-            navigation('/dashboard')
+            navigation('/manage')
         } finally {
             setIsLoading(false)
         }

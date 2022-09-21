@@ -1,7 +1,5 @@
-export const DocumentManagementPage = () => {
-    return (
-        <div>
+import { DocumentManagement } from '../components/DocumentManagement/DocumentManagement'
 
-        </div>
-    )
+export const DocumentManagementPage = () => {
+    return <DocumentManagement />
 }

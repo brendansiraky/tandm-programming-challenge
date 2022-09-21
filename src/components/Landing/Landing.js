@@ -9,10 +9,10 @@ export const Landing = () => {
         <div className={styles.wrapper}>
             <h1>Welcome to the Bike Store!</h1>
             <h4>What are you wanting to do?</h4>
-            <button type="button" className="btn btn-primary" onClick={() => navigate('/register')}>
+            <button type="button" onClick={() => navigate('/register')}>
                 Register
             </button>
-            <button type="button" className="btn btn-primary" onClick={() => navigate('/login')}>
+            <button type="button" onClick={() => navigate('/login')}>
                 Login
             </button>
         </div>

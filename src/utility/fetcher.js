@@ -19,12 +19,18 @@ export const fetcher = async (endpoint, config) => {
     }
 
     if (config && config.body) {
-        params.body = JSON.stringify(config.body)
+        if (config.file) {
+            params.body = config.body
+            delete headers['Content-Type']
+            delete headers['Accept']
+        } else {
+            params.body = JSON.stringify(config.body)
+        }
     }
 
     try {
 
-        const response = await fetch(`http://127.0.0.1:3001${endpoint}`, params)
+        const response = await fetch(`${process.env.REACT_APP_API_ENDPOINT}${endpoint}`, params)
 
         if (response.status > 299 || response.status < 200) {
             throw response

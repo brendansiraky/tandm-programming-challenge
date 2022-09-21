@@ -1,0 +1,26 @@
+.table {
+    font-family: sans-serif;
+
+    th,
+    td {
+        padding: .25em .5em;
+        text-align: left;
+    }
+
+    th:nth-child(1), td:nth-child(1) {
+        width: 50vw;
+    }
+
+    th:nth-child(2), td:nth-child(2) {
+        min-width: 20vw;
+    }
+
+    td {
+        background-color: #eee;
+    }
+
+    th {
+        background-color: #009;
+        color: #fff;
+    }
+}
