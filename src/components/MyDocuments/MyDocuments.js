@@ -1,15 +1,13 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useState, useRef } from 'react'
 
 import { DashboardContentHeading } from '../shared/DashboardContentHeading/DashboardContentHeading'
 import { useGetManageableDocuments } from '../../hooks/useGetManageableDocuments'
+import { ShareDocumentModal } from '../ShareDocumentModal/ShareDocumentModal'
 import { DocumentTile } from '../shared/DocumentTile/DocumentTile'
 import { useUploadDocument } from '../../hooks/useUploadDocument'
-
-import styles from './MyDocuments.module.scss'
-import { Loader } from '../shared/Loader/Loader'
+import { Loading } from '../shared/Loading/Loading'
 import { Modal } from '../shared/Modal/Modal'
-import { ShareDocumentModal } from '../ShareDocumentModal/ShareDocumentModal'
-import { useState } from 'react'
+import styles from './MyDocuments.module.scss'
 
 export const MyDocuments = () => {
     const [manageDocument, setManageDocument] = useState(null)
@@ -65,12 +63,4 @@ export const MyDocuments = () => {
             </Modal>
         </div>
     )
-}
-
-const Loading = ({ isLoading, children }) => {
-    if (isLoading) {
-        return <Loader />
-    }
-    
-    return children
 }

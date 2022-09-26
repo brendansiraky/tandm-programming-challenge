@@ -18,9 +18,6 @@ export const useRegister = () => {
             })
             toast.success('Successfully Registered User.')
             navigation('/login')
-        } catch (err) {
-            toast.error('Failed To Register User.')
-            throw err
         } finally {
             setIsLoading(false)
         }

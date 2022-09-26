@@ -9,9 +9,9 @@ import { withProtectedRoute } from './hocs/withProtectedRoute';
 import { Navigation } from './components/Navigation/Navigation';
 import { DocumentsManagementPage } from './pages/DocumentsManagementPage';
 import { DocumentsViewPage } from './pages/DocumentsViewPage';
-import './styles/global.scss'
 import { Logo } from './components/shared/Logo/Logo';
 import { DashboardPage } from './pages/DashboardPage';
+import './styles/global.scss'
 
 function App() {
 	return (

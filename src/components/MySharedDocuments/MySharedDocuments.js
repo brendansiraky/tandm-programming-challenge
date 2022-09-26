@@ -5,6 +5,7 @@ import { useGetViewableDocuments } from '../../hooks/useGetViewableDocuments'
 import { UpdateCommentModal } from '../UpdateCommentModal/UpdateCommentModal'
 import { DocumentTile } from '../shared/DocumentTile/DocumentTile'
 import { Modal } from '../shared/Modal/Modal'
+import { Loading } from '../shared/Loading/Loading'
 import styles from './MySharedDocuments.module.scss'
 
 export const MySharedDocuments = () => {
@@ -29,15 +30,17 @@ export const MySharedDocuments = () => {
     return (
         <div className={styles.wrapper}>
             <DashboardContentHeading title="My Shared Documents" />
-            <ul className={styles.wrapper}>
-                {documents.map(document => (
-                    <DocumentTile 
-                        key={document.id} 
-                        {...document}
-                        action={<button onClick={() => setDocumentSelected(document)}>Comment</button>}
-                    />
-                ))}
-            </ul>
+            <Loading isLoading={fetchIsLoading}>
+                <ul className={styles.wrapper}>
+                    {documents.map(document => (
+                        <DocumentTile
+                            key={document.id}
+                            {...document}
+                            action={<button onClick={() => setDocumentSelected(document)}>Comment</button>}
+                        />
+                    ))}
+                </ul>
+            </Loading>
             <Modal
                 show={documentSelected}
                 onHide={() => setDocumentSelected(null)}
