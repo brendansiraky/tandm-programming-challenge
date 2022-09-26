@@ -1,16 +1,13 @@
-import { Route, Routes, Navigate } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
-import { LoginPage } from './pages/LoginPage';
-import { RegisterPage } from './pages/RegisterPage';
-import { withUnprotectedRoute } from './hocs/withUnprotectedRoute';
-import { withProtectedRoute } from './hocs/withProtectedRoute';
-import { Navigation } from './components/Navigation/Navigation';
-import { DocumentsManagementPage } from './pages/DocumentsManagementPage';
-import { DocumentsViewPage } from './pages/DocumentsViewPage';
-import { Logo } from './components/shared/Logo/Logo';
-import { DashboardPage } from './pages/DashboardPage';
+import { withUnprotectedRoute } from './hocs/withUnprotectedRoute'
+import { withProtectedRoute } from './hocs/withProtectedRoute'
+import { DashboardPage } from './pages/DashboardPage'
+import { Logo } from './components/shared/Logo/Logo'
+import { RegisterPage } from './pages/RegisterPage'
+import { LoginPage } from './pages/LoginPage'
 import './styles/global.scss'
 
 function App() {
@@ -28,7 +25,6 @@ function App() {
 				{/* <Route path="/manage" element={withProtectedRoute(DocumentsManagementPage)} /> */}
 
 			</Routes>
-			{/* <Navigation /> */}
 			<Logo />
 			<ToastContainer
 				hideProgressBar={false}
