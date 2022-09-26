@@ -1,0 +1,7 @@
+@import '../../../styles/variables.module';
+
+.errorMessage {
+    margin-top: $spacing-small;
+    color: $color-error;
+    font-size: 0.7em;
+}

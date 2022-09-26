@@ -1,14 +1,12 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 
 import { fetcher } from '../utility/fetcher'
 import { setItemInLocalStorage } from '../utility/localStorage'
 
 export const useLogin = () => {
     const [isLoading, setIsLoading] = useState(false)
-    const navigation = useNavigate()
 
-    async function handleLogin(payload) {
+    async function handleLogin(payload, onSuccess) {
         try {
             setIsLoading(true)
             const authContext = await fetcher('/auth/login', {
@@ -16,7 +14,7 @@ export const useLogin = () => {
                 body: payload
             })
             setItemInLocalStorage('authContext', { accessToken: authContext.access_token })
-            navigation('/manage')
+            onSuccess()
         } finally {
             setIsLoading(false)
         }

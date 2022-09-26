@@ -1,0 +1,14 @@
+@import '../../../styles/variables.module';
+@import '../../../styles/mixins.module';
+
+.wrapper {
+
+    width: 100%;
+    height: 60px;
+    @include flex(flex, row, wrap, flex-end, center);
+
+    span {
+        font-weight: bold;
+    }
+
+}

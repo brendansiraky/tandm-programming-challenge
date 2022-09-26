@@ -8,6 +8,8 @@ export const Modal = ({ show, onHide, children }) => {
 
     useOutsideAlerter(show, ref, () => onHide())
 
+    if (!show) return null
+
     return (
         <div className={styles.wrapper}>
             <div className={styles.modal} ref={ref}>

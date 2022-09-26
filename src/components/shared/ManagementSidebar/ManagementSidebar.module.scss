@@ -1,0 +1,51 @@
+@import '../../../styles/mixins.module';
+
+.wrapper {
+
+    height: 100vh;
+    width: 260px;
+    background-color: rgba(255, 255, 255, 1);
+    padding: $spacing-medium;
+    padding-top: calc($spacing-large * 3);
+    position: fixed;
+
+    .logoutWrapper {
+        @include position($position: absolute, $bottom: $spacing-medium, $left: $spacing-medium);
+    }
+
+    .managementActionsWrapper {
+
+        .managementAction:not(:last-child) {
+            margin-bottom: $spacing-small;
+        }
+
+        .managementAction {
+
+            position: relative;
+            font-weight: bold;
+            transition: padding 0.2s;
+            cursor: pointer;
+
+            &.active,
+            &:hover {
+                padding-left: $spacing-small;
+            }
+
+            &.active,
+            &:hover {
+                &:before {
+                    content: '';
+                    height: 100%;
+                    width: 3px;
+                    border-radius: 3px;
+                    @include position($position: absolute, $top: 0, $left: 0);
+                    background-color: $color-primary;
+                }
+            }
+
+
+        }
+
+    }
+
+}

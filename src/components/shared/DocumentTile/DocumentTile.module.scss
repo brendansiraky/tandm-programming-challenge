@@ -1,0 +1,69 @@
+@import '../../../styles/mixins.module';
+@import '../../../styles/variables.module';
+
+.wrapper {
+
+    background-color: $color-light;
+    display: inline-block;
+    padding: $spacing-small;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 1px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    
+    &:hover {
+        box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 8px;
+        transform: translateY(-2px);
+    }
+
+    .topWrapper {
+
+        margin: $spacing-small 0;
+
+        .author {
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        .category {
+            font-size: 0.8em;
+        }
+
+    }
+
+    .imageWrapper {
+
+        margin: $spacing-small 0;
+
+        .image {
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 100%;
+            height: 220px;
+        }
+
+    }
+
+    .bottomWrapper {
+
+        .projectName {
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        .comment {
+            font-size: 0.8em;
+        }
+
+        .manageWrapper {
+            @include flex(flex, row, wrap, flex-end, center);
+            margin-top: $spacing-small;
+        }
+
+    }
+
+}

@@ -1,0 +1,19 @@
+@import '../../../styles/mixins.module.scss';
+
+.wrapper {
+
+    @include flex(flex, column, wrap, center, center);
+    width: 100%;
+    height: 100%;
+
+    .loader {
+        @include background-image(loader, svg, contain, center, no-repeat);
+        width: 40px;
+        height: 40px;
+    }
+
+    .loaderText {
+        margin-top: 10px;
+    }
+
+}

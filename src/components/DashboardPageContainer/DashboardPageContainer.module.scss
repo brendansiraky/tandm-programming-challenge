@@ -1,0 +1,14 @@
+@import '../../styles/variables.module';
+
+.wrapper {
+    
+    display: flex;
+    flex-direction: row;
+
+    .contentWrapper {
+        padding: 0 $spacing-large;
+        width: 100%;
+        margin-left: 260px;
+    }
+
+}

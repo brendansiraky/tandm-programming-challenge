@@ -10,7 +10,7 @@ export const UnprotectedRoute = ({ children }) => {
     useEffect(() => {
         const authContext = getItemFromLocalStorage('authContext')
         if (authContext) {
-            navigate('/manage')
+            navigate('/dashboard')
         }
         // eslint-disable-next-line
     }, [])

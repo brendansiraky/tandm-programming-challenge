@@ -1,0 +1,104 @@
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+html {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    margin: 0;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+form {
+    
+    label {
+        display: block;
+        font-size: 0.8em;
+        font-weight: bold;
+        margin-bottom: $spacing-small;
+    }
+
+}
+
+a {
+
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+    text-decoration-line: none;
+    color: $color-primary;
+
+    &:hover,
+    &:active {
+        outline-width: 0;
+        text-decoration-line: underline;
+    }
+
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+
+    font-size: 100%;
+    margin: 0;
+    border-width: 0px;
+    border-radius: 5px;
+
+    &:focus {
+        outline: none;
+    }
+
+}
+
+input, textarea {
+    background-color: $color-background;
+    padding: $spacing-small;
+    width: 100%;
+}
+
+::-webkit-file-upload-button {
+    border: none;
+    border-radius: 5px;
+}
+
+button,
+::-webkit-file-upload-button,
+[type="submit"] {
+
+    cursor: pointer;
+    background-color: $color-primary;
+    color: $color-light;
+    font-weight: bold;
+    font-size: 0.8em;
+    padding: $spacing-small $spacing-medium;
+    width: auto;
+    transition: background-color 0.2s;
+
+    &:disabled {
+        opacity: 0.4;
+        pointer-events: none;
+    }
+
+    &:hover {
+        background-color: lighten($color: $color-primary, $amount: 5%);
+    }
+
+}

@@ -1,0 +1,11 @@
+@import '../../styles/variables.module';
+
+.wrapper {
+    ul {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: $spacing-medium;   
+    }
+
+    margin-bottom: $spacing-large;
+}

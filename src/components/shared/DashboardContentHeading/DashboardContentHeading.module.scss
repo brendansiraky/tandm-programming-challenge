@@ -1,0 +1,7 @@
+@import '../../../styles/mixins.module';
+@import '../../../styles/variables.module';
+
+.wrapper {
+    @include flex(flex, row, wrap, space-between, flex-start);
+    margin: $spacing-large 0 $spacing-medium 0;
+}

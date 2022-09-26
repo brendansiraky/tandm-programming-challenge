@@ -1,3 +1,5 @@
+@import '../../../styles/mixins.module';
+
 .wrapper {
 
     position: fixed;
@@ -9,13 +11,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 10;
 
     .modal {
 
-        padding: 60px;
+        padding: $spacing-large;
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
         border-radius: 10px;
-        background-color: #F2F2F2;
+        background-color: $color-light;
         min-width: 20vw;
         min-height: 20vh;
 

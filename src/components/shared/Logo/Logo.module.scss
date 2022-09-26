@@ -1,0 +1,12 @@
+@import '../../../styles/mixins.module';
+
+.wrapper {
+    
+    @include position($position: absolute, $top: $spacing-medium, $left: $spacing-small);
+    position: fixed;
+
+    .logo {
+        max-width: 60px;
+    }
+
+}

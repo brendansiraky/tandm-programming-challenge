@@ -55,7 +55,7 @@ export const ShareDocumentModal = ({ documentId }) => {
                             ))}
                         </ul>
                     </div>
-                    <div>
+                    <div className={styles.section}>
                         <h2>Not Shared With:</h2>
                         <ul>
                             {document.shareable && document.shareable.map(user => (
